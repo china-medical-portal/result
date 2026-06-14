@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTEB Results Zone</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8fbff; margin: 0; padding: 20px; }
+        .container { max-width: 400px; margin: auto; text-align: center; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        
+        /* রেজাল্ট কার্ড স্টাইল */
+        .result-item { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 15px; margin-bottom: 10px; text-align: left; }
+        .semester-head { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+        .gpa-box { background: #f0fff0; border: 1px solid #d4edda; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .gpa-val { color: #28a745; font-weight: bold; font-size: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>BTEB Results Zone</h2>
+    <div class="card">
+        <input type="number" id="roll" placeholder="Enter Roll Number">
+        <button onclick="viewResult()">View Result</button>
+    </div>
+    <div id="result-display"></div>
+</div>
+
+<script>
+function viewResult() {
+    let roll = document.getElementById("roll").value;
+    let disp = document.getElementById("result-display");
+    
+    if(roll === "884612") {
+        disp.innerHTML = `
+            <div class="card" style="text-align:left;">
+                <h3># 884612</h3>
+                <p><strong>Name:</strong> MD MOHOSHIN PARVEZ</p>
+                <p>Diploma in Engineering | Regulation 2022</p>
+                <p>Bangladesh-Sweden Polytechnic Institute, Rangamati</p>
+            </div>
+            
+            <div class="result-item">
+                <div class="semester-head"><span>4th Semester</span> <span style="color:green;">✔ Passed</span></div>
+                <div class="gpa-box"><span>GPA</span> <span class="gpa-val">3.67</span> <span>A-</span></div>
+            </div>
+            <div class="result-item">
+                <div class="semester-head"><span>3rd Semester</span> <span style="color:green;">✔ Passed</span></div>
+                <div class="gpa-box"><span>GPA</span> <span class="gpa-val">3.26</span> <span>B+</span></div>
+            </div>
+            <div class="result-item">
+                <div class="semester-head"><span>2nd Semester</span> <span style="color:green;">✔ Passed</span></div>
+                <div class="gpa-box"><span>GPA</span> <span class="gpa-val">3.37</span> <span>B+</span></div>
+            </div>
+            <div class="result-item">
+                <div class="semester-head"><span>1st Semester</span> <span style="color:green;">✔ Passed</span></div>
+                <div class="gpa-box"><span>GPA</span> <span class="gpa-val">2.93</span> <span>B</span></div>
+            </div>
+        `;
+    } else {
+        disp.innerHTML = "<p>Result not found for this roll number.</p>";
+    }
+}
+</script>
+</body>
+</html>
